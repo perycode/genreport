@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{palatino}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{mathpazo}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{titlesec}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\tolerance=1000
+            \let\oldsection\section
+\renewcommand{\section}{\clearpage\oldsection}
+\renewcommand*{\contentsname}{Índice}
+\renewcommand*{\figurename}{Figura}
+
+\linespread{1.1}
+\usepackage{a4wide}
+\usepackage{makecell}
+
+% Encabezadois y pie de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\headheight}{72pt} % Ajusta la altura del encabezado
+\setlength{\headsep}{35pt}% Ajusta la separación entre el encabezado y el cuerpo del texto
+\setlength{\footskip}{30pt} % Ajusta la separación entre el cuerpo del texto y el pie de página
+\setlength{\textheight}{\dimexpr\textheight-30pt\relax} % Ajusta la altura del texto para compensar el espacio del pie de página
+
+\fancyhead[R]{
+  \mbox{\makecell[c]{{\footnotesize\sc Laboratorio de Radiactividad}
+    \\{\footnotesize\sc de la Universidad de Extremadura}
+    \\{\footnotesize\sc Cáceres}
+    \vspace{5pt}
+    \\{\small\sc INFORME DE LA RED SPIDA:}
+    \vspace{5pt}
+    \\\textbf{\large{Recopilatiorio de }}
+    \\\textbf{\large{informes diarios}}}
+    }\\
+}
+
+\fancyhead[L]{
+\includegraphics[scale=0.11]{./templates/laruex_logo.png}
+}
+
+% NOTA AL PIE
+%
+\fancyfoot[C]{
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+    \hline
+    Informe:  @@CODIGO@@ & Fecha: \today  & \thepage\ de \pageref{LastPage}\\
+    \hline
+  \end{tabularx}
+}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\author{Pedro Monroy}
+\date{\today}
+\title{@@TITULO@@}
+\hypersetup{
+ pdfauthor={Pedro Monroy},
+ pdftitle={@@TITULO@@}
+ pdfkeywords={},
+ pdfsubject={},
+ pdflang={Spanish}}
+
+% Customizing subsection title
+\titleformat{\subsection}[block]
+  {\normalfont\Large\bfseries\filcenter\vspace*{\fill}} % Formatting style
+  % {\filcenter\Large} % Center and set font size
+  {} % No label
+  {0pt} % No space between label and title
+  {\vspace*{\fill}} % Add vertical space before title
+  [\vspace*{\fill}] % Add vertical space after title
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+% \tableofcontents
+
+% \section*{}
+
+\includepdf[pages=-]{@@PDF@@}
+
+\end{document}
