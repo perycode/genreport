@@ -1,2 +1,2 @@
 # genreport
-Compila informes generados en pdf en uno solo con código 
+Genera un informe final a partir de un conjunto informes.
